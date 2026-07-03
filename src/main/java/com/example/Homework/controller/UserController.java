@@ -1,4 +1,4 @@
-package com.example.Homework.cotroller;
+package com.example.Homework.controller;
 
 import com.example.Homework.model.User;
 import com.example.Homework.service.UserService;
