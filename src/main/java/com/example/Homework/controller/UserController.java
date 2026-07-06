@@ -1,6 +1,7 @@
 package com.example.Homework.controller;
 
 import com.example.Homework.model.User;
+import com.example.Homework.repository.UserRepository;
 import com.example.Homework.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,13 +12,18 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    private final UserRepository userRepository;
+
+    public UserController(UserService userService , UserRepository userRepository) {
         this.userService = userService;
+
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
-        return ResponseEntity.ok(userService.getUserById(id));
+        //return ResponseEntity.ok(userService.getUserById(id));
+        return ResponseEntity.ok(userRepository.findById(id).get());
     }
 
     @PostMapping
