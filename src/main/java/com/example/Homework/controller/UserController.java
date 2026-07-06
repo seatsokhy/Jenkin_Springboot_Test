@@ -1,7 +1,6 @@
 package com.example.Homework.controller;
 
 import com.example.Homework.model.User;
-import com.example.Homework.repository.UserRepository;
 import com.example.Homework.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
