@@ -1,6 +1,7 @@
 package com.example.Homework.controller;
 
 import com.example.Homework.model.User;
+import com.example.Homework.repository.UserRepository;
 import com.example.Homework.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -21,6 +22,9 @@ class UserControllerTest {
 
     @MockitoBean
     private UserService userService;
+
+    @MockitoBean
+    private UserRepository userRepository;
 
     @Test
     public void testGetUser() throws Exception {

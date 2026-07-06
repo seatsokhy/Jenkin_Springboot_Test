@@ -12,18 +12,15 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    private final UserRepository userRepository;
 
-    public UserController(UserService userService , UserRepository userRepository) {
+    public UserController(UserService userService ) {
         this.userService = userService;
 
-        this.userRepository = userRepository;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
-        //return ResponseEntity.ok(userService.getUserById(id));
-        return ResponseEntity.ok(userRepository.findById(id).get());
+        return ResponseEntity.ok(userService.getUserById(id));
     }
 
     @PostMapping
